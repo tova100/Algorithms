@@ -39,7 +39,6 @@ public class Solution
         int j = nums.Length - 1;
         nums = SortArray(nums);
         return TwoSum(nums, i, j, target);
-
-
     }
 }
+//There is option to do with O(n) with O(m) place
