@@ -1,0 +1,45 @@
+//Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+//You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+//You can return the answer in any order.
+
+using System.Collections.Immutable;
+using System.Globalization;
+
+public class Solution
+{
+    public int[] TwoSum(int[] nums, int i, int j, int target)
+
+    {
+        if ((nums[i] + nums[j]) == target)
+        {
+            return new int[] { i, j };
+        }
+        else if ((nums[i] + nums[j]) > target)
+        {
+           return TwoSum(nums, i, j - 1, target);
+        }
+        else
+        {
+            return TwoSum(nums, i + 1, j, target);
+        }
+    }
+    public int[] SortArray(int[] nums)
+    {
+        Array.Sort(nums);
+        return nums;
+
+    }
+
+    public int[] Main(int[] nums, int target)
+    {
+        //o nlogn
+        int i = nums[0];
+        int j = nums[nums.Length - 1];
+        nums = SortArray(nums);
+        return TwoSum(nums, i, j, target);
+
+
+    }
+}
